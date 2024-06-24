@@ -21,4 +21,19 @@ router.get('/contact', (req, res) => {
     res.sendFile('about.html', { root: 'public'});
 });
 
+//
+// Rotas de Paciente
+router.get('/paciente', (req, res) => {
+    res.sendFile('paciente.html', { root: 'public'});
+});
+
+router.get('/paciente/cadastrar', (req, res) => {
+    res.sendFile('cadastrar_paciente.html', { root: 'public' });
+});
+
+router.get('/paciente/procurar', (req, res) => {
+    res.sendFile('procurar_paciente.html', { root: 'public' });
+});
+//
+
 module.exports = router;
