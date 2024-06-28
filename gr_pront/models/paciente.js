@@ -26,3 +26,31 @@ class Paciente {
         this.endereco_bairro = endereco_bairro;
     }
 }
+
+module.exports = Paciente;
+
+// // Exemplo de uso:
+// const pacienteExemplo = new Paciente(
+//     "João Silva",
+//     "1980-01-01",
+//     "M",
+//     "joao.silva@example.com",
+//     "Engenheiro",
+//     "Maria Silva",
+//     "11987654321",
+//     "123.456.789-00",
+//     "123456789",
+//     "123456789",
+//     "Plano Saúde ABC",
+//     "123456",
+//     "12345-678",
+//     "SP",
+//     "São Paulo",
+//     "Rua Exemplo",
+//     "123",
+//     "Apt 45",
+//     "Bairro Exemplo"
+// );
+
+// // gravarPaciente(pacienteExemplo);
+// console.log(pacienteExemplo);

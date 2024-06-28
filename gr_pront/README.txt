@@ -10,8 +10,7 @@ PLano de Acao
 
 
 Proximo passo:
-    . testar o controller e o model
-    . verificar o input no banco de dados e verificar se está conectando corretamente
+    . adicionar na funcao de insercao de paciente, check if paciente existe.
     . verificar o formulário subindo o item corretamente. 
     . mostrar o resumo do paciente.
     . colocar delete e alterar button no paciente

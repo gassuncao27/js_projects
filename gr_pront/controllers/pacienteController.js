@@ -1,11 +1,35 @@
 const { Client } = require('pg');
-const Paciente = require('../models/paciente');
+const Paciente = require('../models/paciente.js');
+
+// Exemplo de uso:
+const pacienteExemplo = new Paciente(
+    "João Silva",
+    "1980-01-01",
+    "M",
+    "joao.silva@example.com",
+    "Engenheiro",
+    "Maria Silva",
+    "11987654321",
+    "123.456.789-00",
+    "123456789",
+    "123456789",
+    "Plano Saúde ABC",
+    "123456",
+    "12345-678",
+    "SP",
+    "São Paulo",
+    "Rua Exemplo",
+    "123",
+    "Apt 45",
+    "Bairro Exemplo"
+);
+
 
 async function gravarPaciente(paciente) {
     const client = new Client({
         user: 'gabrielassuncao',
         host: 'localhost',
-        database: 'paciente',
+        database: 'gabrielassuncao',
         password: 'Senha2733#',
         port: 5432,
     });
@@ -59,6 +83,7 @@ async function gravarPaciente(paciente) {
         paciente.endereco_bairro
     ];
 
+    console.log(values)
     try {
         const res = await client.query(query, values);
         console.log('Paciente inserido com sucesso:', res.rows[0].id_paciente);
@@ -67,9 +92,7 @@ async function gravarPaciente(paciente) {
     } finally {
         await client.end();
     }
-    }
-
-    module.exports = {
-    gravarPaciente
 };
 
+// module.exports = { gravarPaciente };
+gravarPaciente(pacienteExemplo);
