@@ -34,6 +34,5 @@ router.get('/paciente/cadastrar', (req, res) => {
 router.get('/paciente/procurar', (req, res) => {
     res.sendFile('procurar_paciente.html', { root: 'public' });
 });
-//
 
 module.exports = router;

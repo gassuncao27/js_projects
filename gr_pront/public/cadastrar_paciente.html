@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset= "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR_Pront Web App</title>
+    <!-- New font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-center">
+                <!-- nav header -->
+                <div class="nav-header">
+                <img class="logo" src="./static/logo.jpeg" alt="logo">
+                <button class="nav-toggle">
+                    <i class="fas fa-bats"></i>
+                </button>
+                </div>
+                <!-- links -->
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="paciente.html">Pacientes</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <!-- social media -->
+                <ul class="social-icons">
+                    <li>
+                    <a href="https://www.instagram.com/dra.rafaella.vascular/">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <body>
+            <!-- conteudo especifico de cada pagina será inserido aqui -->
+            <p>Cadastrar Paciente - GR Pront</p>
+                <form id="cadastroPacienteForm">
+                    <label for="nome_completo">Nome Completo:</label>
+                    <input type="text" id="nome_completo" name="nome_completo"><br>
+            
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento"><br>
+            
+                    <label for="sexo">Sexo:</label>
+                    <input type="text" id="sexo" name="sexo"><br>
+            
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"><br>
+            
+                    <label for="profissao">Profissão:</label>
+                    <input type="text" id="profissao" name="profissao"><br>
+            
+                    <label for="nome_mae">Nome da Mãe:</label>
+                    <input type="text" id="nome_mae" name="nome_mae"><br>
+            
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone"><br>
+            
+                    <label for="cpf_nr">CPF:</label>
+                    <input type="text" id="cpf_nr" name="cpf_nr"><br>
+            
+                    <label for="id_nr">ID:</label>
+                    <input type="text" id="id_nr" name="id_nr"><br>
+            
+                    <label for="cnh_nr">CNH:</label>
+                    <input type="text" id="cnh_nr" name="cnh_nr"><br>
+            
+                    <label for="planosaude_empresa">Plano de Saúde Empresa:</label>
+                    <input type="text" id="planosaude_empresa" name="planosaude_empresa"><br>
+            
+                    <label for="planosaude_numero">Plano de Saúde Número:</label>
+                    <input type="text" id="planosaude_numero" name="planosaude_numero"><br>
+            
+                    <label for="endereco_cep">CEP:</label>
+                    <input type="text" id="endereco_cep" name="endereco_cep"><br>
+            
+                    <label for="endereco_estado">Estado:</label>
+                    <input type="text" id="endereco_estado" name="endereco_estado"><br>
+            
+                    <label for="endereco_cidade">Cidade:</label>
+                    <input type="text" id="endereco_cidade" name="endereco_cidade"><br>
+            
+                    <label for="endereco_rua">Rua:</label>
+                    <input type="text" id="endereco_rua" name="endereco_rua"><br>
+            
+                    <label for="endereco_numero">Número:</label>
+                    <input type="text" id="endereco_numero" name="endereco_numero"><br>
+            
+                    <label for="endereco_complemento">Complemento:</label>
+                    <input type="text" id="endereco_complemento" name="endereco_complemento"><br>
+            
+                    <label for="endereco_bairro">Bairro:</label>
+                    <input type="text" id="endereco_bairro" name="endereco_bairro"><br>
+            
+                    <button type="submit">Cadastrar</button>
+                </form>
+
+                <button id="voltarButton">Voltar</button>
+
+                <script>
+                    document.getElementById('cadastroPacienteForm').addEventListener('submit', async function(event) {
+                        event.preventDefault();
+            
+                        const formData = new FormData(this);
+                        const data = Object.fromEntries(formData.entries());
+            
+                        const response = await fetch('/api/pacientes', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+            
+                        if (response.ok) {
+                            alert('Paciente cadastrado com sucesso!');
+                            this.reset();
+                        } else {
+                            alert('Erro ao cadastrar paciente.');
+                        }
+                    });
+
+                    document.getElementById('voltarButton').addEventListener('click', function(){
+                        window.location.href = '/paciente';
+                    });
+                </script>                
+        </body>
+
+    </main>
+</body>
+</html>
