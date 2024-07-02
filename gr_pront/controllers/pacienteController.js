@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client } = require('pg');
 const Paciente = require('../models/paciente.js');
 
@@ -27,11 +28,11 @@ const pacienteExemplo = new Paciente(
 
 async function gravarPaciente(paciente) {
     const client = new Client({
-        user: 'gabrielassuncao',
-        host: 'localhost',
-        database: 'gabrielassuncao',
-        password: 'Senha2733#',
-        port: 5432,
+        user: 'postgres',
+        host: process.env.HOST,
+        database: process.env.DATABASE,
+        password: process.env.PASSWORD,
+        port: Number(process.env.PORT),
     });
 
     await client.connect();
